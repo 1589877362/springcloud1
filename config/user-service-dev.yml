@@ -1,0 +1,22 @@
+# 向注册中心注册时，使用这个名字进行注册
+spring:
+  application:
+    name: user-service
+  cloud:
+    config:
+      override-none: true
+server:
+  port: 8101
+
+# 添加一个自定义配置属性
+# 配置三个测试用的用户数据
+sp:
+  user-service:
+    users: "[{\"id\":7, \"username\":\"abc\",\"password\":\"123\"},{\"id\":8, \"username\":\"def\",\"password\":\"456\"},{\"id\":9, \"username\":\"ghi\",\"password\":\"789\"}]"
+
+eureka:
+  client:
+    service-url:
+      # defaultZone 默认地点
+      # 如果用云服务，可以配置不同地点
+      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka

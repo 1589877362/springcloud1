@@ -1,0 +1,21 @@
+# yml, yaml, Yet another markup language
+
+# 应用名，作为“服务id”，注册到注册中心
+spring:
+  application:
+    name: item-service
+  cloud:
+    config:
+      override-none: true
+
+# 8001,  8101,  8201
+server:
+  port: 8001
+
+eureka:
+  client:
+    service-url:
+      # defaultZone 默认地点
+      # 如果用云服务，可以配置不同地点
+      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+

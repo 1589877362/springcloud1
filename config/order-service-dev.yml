@@ -1,0 +1,26 @@
+# 向注册中心注册时，使用这个名字，作为“服务id”
+spring:
+  application:
+    name: order-service
+  cloud:
+    config:
+      override-none: true
+server:
+  port: 8201
+
+eureka:
+  client:
+    service-url:
+      # defaultZone 默认地点
+      # 如果用云服务，可以配置不同地点
+      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
